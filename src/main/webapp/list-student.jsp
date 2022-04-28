@@ -21,12 +21,13 @@
                 <th scope="col">College</th>
               </tr>
             </thead>
-            <tbody>               
-                <c:forEach var="student" items="${Students}">
+            <tbody>
+
+               <c:forEach var="student" items="${Students}">
                      <tr>                        
-                        <td><c:out value="${student.getName()}"/></td>
-                        <td><c:out value="${student.getClg()}"/></td>
-                        <td><c:out value="${student.getCls()}"/></td>
+                        <td>${student.getName()}</td>
+                        <td>${student.getClg()}</td>
+                        <td>${student.getCls()}</td>
                     </tr> 
                 </c:forEach>
                           

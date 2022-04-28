@@ -15,7 +15,7 @@ import java.util.List;
 
 public class StudentDao {
 
-    List<Student> students=new ArrayList<>();
+
     DbUtility dbUtility=new DbUtility();
     int returnValue=0;
 
@@ -39,23 +39,26 @@ public class StudentDao {
     }
 
     public List<Student> listStudent(){
+        List<Student> students=new ArrayList<>();
         String query ="SELECT * FROM STUDENT_INFO";
         try {
             Connection con = dbUtility.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs =ps.executeQuery();
-            Student student = new Student();
             while(rs.next()){
+                Student student = new Student();
+                student.setId(rs.getInt("ID"));
                 student.setName(rs.getString("name"));
                 student.setClg(rs.getString("college"));
                 student.setCls(rs.getString("class"));
                 students.add(student);
             }
             con.close();
-            return students;
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return students;
     }
 
 }

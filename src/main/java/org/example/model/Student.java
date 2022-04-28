@@ -1,9 +1,18 @@
 package org.example.model;
 
 public class Student {
-
+    private long id;
     private String name;
     private String clg;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     private String cls;
 
     public Student() {
